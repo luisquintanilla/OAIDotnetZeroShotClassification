@@ -76,20 +76,20 @@ var issueAreaEmbeddings =
     issueEmbeddingBroadcast
     .Select(issueEmbeddings => 
         issueEmbeddings
-            .Zip(areaEmbeddings,(a,b) 
-                => new { IssueEmbedding=a, AreaEmbedding=b}).ToArray())
+            .Zip(areaEmbeddings,(issue,area) 
+                => new { IssueEmbedding=issue, AreaEmbedding=area}).ToArray())
     .ToArray();
 
 // Map area labels to issue and area embeddings
 var areaLabelEmbeddingMapping = 
     issueAreaEmbeddings
-        .Select(x => 
+        .Select(embeddings => 
             areas
-                .Zip(x,(a,b) => 
+                .Zip(embeddings,(area,embeddings) => 
                     new {
-                        Area=a,
-                        IssueEmbedding=b.IssueEmbedding,
-                        AreaEmbedding=b.AreaEmbedding}))
+                        Area=area,
+                        IssueEmbedding=embeddings.IssueEmbedding,
+                        AreaEmbedding=embeddings.AreaEmbedding}))
         .ToArray();
 
 // Get the top area for each issue
