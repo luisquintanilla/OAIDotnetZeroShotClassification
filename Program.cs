@@ -65,7 +65,7 @@ var areaEmbeddings =
 // Generate embeddings for each of the issues
 var issueEmbedding = data.Select(issue => GetEmbedding(issue.GetPreEmbeddedString()));
 
-// Generate an embedding vector for each of 
+// Generate an embedding vector for each of the candidate classes
 var areaSize = areaEmbeddings.Count();
 var issueEmbeddingBroadcast = 
     issueEmbedding.Select(issueVector => 
