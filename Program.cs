@@ -14,7 +14,7 @@ var key = new Azure.AzureKeyCredential(Environment.GetEnvironmentVariable("OPENA
 var deploymentId = Environment.GetEnvironmentVariable("OPENAI_DEPLOYMENT");
 var client = new OpenAIClient(endpoint, key);
 
-// Create an istance of a GitHub Issue
+// Create a list of a GitHub issues
 var data = new [] 
 {
     new Issue
