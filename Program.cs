@@ -92,7 +92,7 @@ var areaLabelEmbeddingMapping =
                         AreaEmbedding=embeddings.AreaEmbedding}))
         .ToArray();
 
-// Get the top area for each issue
+// Get the top area for each issue by choosing the area label with the highest cosine similarity.
 var topAreas = 
     areaLabelEmbeddingMapping
         .Select(x => 
